@@ -7,17 +7,17 @@ public class MaxNum {
     MaxNum maxNum = new MaxNum();
 
     //Test case 1: max number at 1st position
-    System.out.println("max= " + maxNum.findMax(10f, 2f, 3f));
+    System.out.println("max= " + maxNum.findMax("Luke", "Eli", "Conner"));
 
     //Test case 1: max number at 2nd position
-    System.out.println("max= " + maxNum.findMax(10f, 20f, 3f));
+    System.out.println("max= " + maxNum.findMax("Ethan", "Kyle", "Jayden"));
 
     //Test case 1: max number at 3rd position
-    System.out.println("max= " + maxNum.findMax(10f, 20f, 30f));
+    System.out.println("max= " + maxNum.findMax("Chase", "Patric", "Ryan"));
   }
 
-  public float findMax(Float a, Float b, Float c) {
-    Float max = 0f;
+  public String findMax(String a, String b, String c) {
+    String max = "";
 
     if (a.compareTo(b) > 0) {
       if (a.compareTo(c) > 0) max = a;
