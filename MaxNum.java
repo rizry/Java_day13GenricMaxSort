@@ -1,17 +1,33 @@
 package com.java.day13;
 
-public class MaxNum {
+public class MaxNum<E extends Comparable> {
+
+  private E a, b, c;
+
+  public MaxNum(E a, E b, E c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+
+    this.testMaximum(); //constuctor calling the non static method testMaximum, which then calls static testMaximum method.
+  }
+
+  public E testMaximum() {
+    E max = MaxNum.testMaximum(a, b, c);
+    System.out.println("max is " + max);
+    return max;
+  }
 
   public static void main(String[] args) {
-
     //Test case 1: max number at 1st position
-    System.out.println("max= " + testMaximum(10, 2, 3));
+    MaxNum<Integer> intIns = new MaxNum<>(10, 2, 3); //creating named-object for type Integer
 
-    //Test case 1: max float number at 2nd position
-    System.out.println("max= " + testMaximum(10f, 20f, 3f));
+    //Test case 2: max float number at 2nd position
+    new MaxNum<Float>(10f, 20f, 3f); //creating anonymous object for type Float
 
-    //Test case 1: max string at 3rd position
-    System.out.println("max= " + testMaximum("Chase", "Patric", "Ryan"));
+    //Test case 3: max string at 3rd position
+    new MaxNum<String>("Chase", "Patric", "Ryan"); //creating anonymous object for type String
+
   }
 
   @SuppressWarnings({"unchecked", "rawtypes"})
