@@ -21,15 +21,15 @@ public class FindMax<E extends Comparable> {
   public static void main(String[] args) {
     //Test case 1: max int at 1st position
     FindMax<Integer> intIns = new FindMax<>(10, 2, 3);
-    System.out.println("Max= " + intIns.testMaximum("desc") + "\n"); //calling the non-static method testMaximum which takes an option, and thats the fourth input for our static testMaximum method.
+    intIns.testMaximum("desc"); //calling the non-static method testMaximum which takes an option, and thats the fourth input for our static testMaximum method.
 
     //Test case 2: max float number at 2nd position
     FindMax<Float> floatIns = new FindMax<>(10f, 20f, 3f);
-    System.out.println("Max= " + floatIns.testMaximum("asc") + "\n");
+    floatIns.testMaximum("asc");
 
     //Test case 3: max string at 3rd position
     FindMax<String> stringIns = new FindMax<>("Patric", "Chase", "Ryan");
-    System.out.println("Max= " + stringIns.testMaximum("desc") + "\n");
+    stringIns.testMaximum("desc");
 
   }
 
@@ -51,23 +51,33 @@ public class FindMax<E extends Comparable> {
     else max = c;
 
     switch (option) {
-    case "asc":
-      System.out.println("before sorting: " + arrList);
-      Collections.sort(arrList);
-      System.out.println("after sorting (asc): " + arrList);
-      break;
+      case "asc":
+        System.out.println("before sorting: " + arrList);
+        Collections.sort(arrList);
+        System.out.println("after sorting (asc): " + arrList);
+        break;
 
-    case "desc":
-      System.out.println("before sorting: " + arrList);
-      Collections.sort(arrList, Collections.reverseOrder());
-      System.out.println("after sorting (desc): " + arrList);
-      break;
+      case "desc":
+        System.out.println("before sorting: " + arrList);
+        Collections.sort(arrList, Collections.reverseOrder());
+        System.out.println("after sorting (desc): " + arrList);
+        break;
 
-    default:
-      System.out.println("that option doesnt exist");
+      default:
+        System.out.println("that option doesnt exist");
     }
 
+    printMax(arrList, max); //internally calling printMax and passing arraylist and max as parameters to print them.
+
     return max;
+  }
+
+  public static <E> void printMax(ArrayList<E> list, E max) {
+    System.out.print("the max among [");
+
+    for (E l : list) System.out.print(l + " ");
+    
+    System.out.print("] is: " + max + "\n\n");
   }
 
 }
