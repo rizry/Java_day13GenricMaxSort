@@ -4,20 +4,19 @@ public class MaxNum {
 
   public static void main(String[] args) {
 
-    MaxNum maxNum = new MaxNum();
-
     //Test case 1: max number at 1st position
-    System.out.println("max= " + maxNum.findMax("Luke", "Eli", "Conner"));
+    System.out.println("max= " + testMaximum(10, 2, 3));
 
-    //Test case 1: max number at 2nd position
-    System.out.println("max= " + maxNum.findMax("Ethan", "Kyle", "Jayden"));
+    //Test case 1: max float number at 2nd position
+    System.out.println("max= " + testMaximum(10f, 20f, 3f));
 
-    //Test case 1: max number at 3rd position
-    System.out.println("max= " + maxNum.findMax("Chase", "Patric", "Ryan"));
+    //Test case 1: max string at 3rd position
+    System.out.println("max= " + testMaximum("Chase", "Patric", "Ryan"));
   }
 
-  public String findMax(String a, String b, String c) {
-    String max = "";
+  @SuppressWarnings({"unchecked", "rawtypes"})
+  public static <E extends Comparable> E testMaximum(E a, E b, E c) {
+    E max; //only declaring because we can't initialize value here without knowing its type
 
     if (a.compareTo(b) > 0) {
       if (a.compareTo(c) > 0) max = a;
@@ -28,4 +27,5 @@ public class MaxNum {
 
     return max;
   }
+
 }
